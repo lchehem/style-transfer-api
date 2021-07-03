@@ -46,9 +46,17 @@ cached_available_styles = json.dumps({k: v['style_name'] for k, v in styles.item
 def available_styles():
     return cached_available_styles
 
-
 @app.route('/')
 def index():
+    '''
+        Este endpoint simplemente muestra el contenido de 'index.html' cuando
+        se hace un pedido sin parámetros (por ejemplo desde el navegador).
+        
+        Sirve para probar rápidamente la API, especialmente durante su desarrollo.
+        
+        Cuando se disponibilice la API en producción, habría que comentar o
+        borrar esta función para deshabilitar este "frontend provisorio".
+    '''
     return send_file('index.html')
 
 
